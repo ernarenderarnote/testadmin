@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('global.product.title') }}
+        {{ trans('global.show') }} {{ trans('global.destination.title') }}
     </div>
 
     <div class="card-body">
@@ -11,28 +11,21 @@
             <tbody>
                 <tr>
                     <th>
-                        {{ trans('global.product.fields.name') }}
+                        {{ trans('global.destination.fields.title') }}
                     </th>
                     <td>
-                        {{ $product->name }}
+                        {{ $destination->title }}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        {{ trans('global.product.fields.description') }}
+                        {{ trans('global.destination.fields.description') }}
                     </th>
                     <td>
-                        {!! $product->description !!}
+                        {!! $destination->description !!}
                     </td>
                 </tr>
-                <tr>
-                    <th>
-                        {{ trans('global.product.fields.price') }}
-                    </th>
-                    <td>
-                        ${{ $product->price }}
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
     </div>

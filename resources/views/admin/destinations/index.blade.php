@@ -46,7 +46,7 @@
                                 {{ $destination->title ?? '' }}
                             </td>
                             <td>
-                                {{ $destination->description ?? '' }}
+                                {!! $destination->description !!}
                             </td>
                             <td>
                                 {{ $destination->thumbnails ?? '' }}
@@ -85,7 +85,7 @@ $(function () {
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.products.massDestroy') }}",
+    url: "{{ route('admin.destinations.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -109,7 +109,7 @@ $(function () {
     }
   }
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('product_delete')
+@can('destination_delete')
   dtButtons.push(deleteButton)
 @endcan
 

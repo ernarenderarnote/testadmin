@@ -371,6 +371,9 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
+            'image'              => 'Featured Image',
+            'active'             => 'Active',
+            'title'              => 'Title',
         ],
     ],
     'activity'                              => [
@@ -391,6 +394,9 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
+            'image'              => 'Featured Image',
+            'active'             => 'Active',
+            'title'              => 'Title',
         ],
     ],
 ];

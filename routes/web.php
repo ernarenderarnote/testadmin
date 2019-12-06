@@ -43,12 +43,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('products', 'ProductsController');
 
-    Route::resource('destinations', 'DestinationsController');
-
     Route::delete('destinations/destroy', 'DestinationsController@massDestroy')->name('destinations.massDestroy');
 
-    Route::resource('activities', 'ActivitiesController');
+    Route::resource('destinations', 'DestinationsController');
 
     Route::delete('activities/destroy', 'ActivitiesController@massDestroy')->name('activities.massDestroy');
+
+    Route::resource('activities', 'ActivitiesController');
     
 });

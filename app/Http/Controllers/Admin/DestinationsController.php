@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Product;
+use App\Http\Requests\MassDestroyDestinationRequest;
+use App\Http\Requests\StoreDestinationRequest;
+use App\Http\Requests\UpdateDestinationRequest;
 use App\Destination;
 
 class DestinationsController extends Controller
@@ -42,7 +44,7 @@ class DestinationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDestinationRequest $request)
     {
         abort_unless(\Gate::allows('destination_create'), 403);
        
@@ -74,9 +76,11 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Destination $destination)
     {
-        //
+        abort_unless(\Gate::allows('destination_show'), 403);
+
+        return view('admin.destinations.show', compact('destination'));
     }
 
     /**
@@ -99,9 +103,28 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateDestinationRequest $request, Destination $destination)
     {
-        //
+        abort_unless(\Gate::allows('destination_edit'), 403);
+
+        $input = $request->all();
+        
+        $input['slug'] = \Str::slug($request->title);
+
+        if($request->has('image')) {
+
+            $image =  $request->file('image');
+
+            $imageName = time().'.'.request()->image->getClientOriginalExtension();
+            
+            $image->storeAs('images', $imageName);
+            
+            $input['thumbnails'] = $imageName;
+
+        }
+
+        $destination->update($input);
+        return redirect()->route('admin.destinations.index');
     }
 
     /**
@@ -110,8 +133,21 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Destination $destination)
     {
-        //
+
+        abort_unless(\Gate::allows('destination_delete'), 403);
+
+        $destination->delete();
+
+        return back();
+    }
+
+    public function massDestroy(MassDestroyDestinationRequest $request)
+    {
+        
+        Destination::whereIn('id', request('ids'))->delete();
+
+        return response(null, 204);
     }
 }

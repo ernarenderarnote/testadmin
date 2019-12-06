@@ -91,3 +91,6 @@ table.dataTable thead .sorting_desc {
 .login-logo {
     text-align: center;
 }
+.invalid-feedback{
+    display:block;
+}
