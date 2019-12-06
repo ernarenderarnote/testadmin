@@ -53,6 +53,22 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route("admin.destinations.index") }}" class="nav-link {{ request()->is('admin/destinations') || request()->is('admin/destinations/*') ? 'active' : '' }}">
+                    <i class="fas fa-cogs nav-icon">
+
+                    </i>
+                    {{ trans('global.destination.title') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route("admin.activities.index") }}" class="nav-link {{ request()->is('admin/activities') || request()->is('admin/activities/*') ? 'active' : '' }}">
+                    <i class="fas fa-cogs nav-icon">
+
+                    </i>
+                    {{ trans('global.activity.title') }}
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">
 
