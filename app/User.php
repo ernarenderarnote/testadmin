@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Profile;
 
 class User extends Authenticatable
 {
@@ -71,6 +72,10 @@ class User extends Authenticatable
 	{
 	  return null !== $this->roles()->where('title', $role)->first();
 	}
+	public function profile()
+    {
+		return $this->hasOne('App\Profile');
+    }
 	/*
 	public function getFullNameAttribute()
 	{

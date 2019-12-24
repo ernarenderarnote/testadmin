@@ -13,20 +13,26 @@ Auth::routes();
 //Auth::routes(['register' => false]);
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(["namespace" => "Dashboard" , "middleware" => ["auth"]], function()
+Route::group(["namespace" => "Dashboard" , "middleware" => ["auth", "info"]], function()
 {
 	Route::get('/dashboard', [ "as" =>"dashboard", 'uses' => "DashboardController@index" ]);
 
 });
+
 Route::group([ 'prefix' => 'login', "as" => "login." , "namespace" => "Auth"],function()
 {
 	Route::get('/', [ 'as' => 'userlogin',  "uses" => "LoginController@login"] );
+	
 	Route::match(['post'],'/otp', [ 'as' => 'otp', "uses" => "LoginController@otp"] );
+	
 	Route::match(['post','get'],'/validate/otp', [ 'as' => 'validate.otp', "uses" => "LoginController@otpValidate"] );
 });
+
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
-
+	
+	Route::match(['get','post'],'/profile', [ 'as' => 'profile', "uses" => "ProfileController@index"] );
+	
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
 
     Route::resource('permissions', 'PermissionsController');
