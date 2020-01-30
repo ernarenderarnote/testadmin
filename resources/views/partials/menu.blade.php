@@ -69,6 +69,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route("admin.currencies.index") }}" class="nav-link {{ request()->is('admin/currencies') || request()->is('admin/currencies/*') ? 'active' : '' }}">
+                    <i class="fas fa-euro nav-icon">
+
+                    </i>
+                    {{ trans('global.currency.title') }}
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">
 

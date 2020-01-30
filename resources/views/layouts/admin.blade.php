@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head id="app">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -26,7 +26,7 @@
     @yield('styles')
 </head>
 
-<body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
+<body  class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
     <header class="app-header navbar">
         <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
             <span class="navbar-toggler-icon"></span>
@@ -393,6 +393,7 @@
     
 
     <script src="{{ asset('js/main.js') }}"></script>
+	
     <script>
         $(function() {
   let copyButtonTrans = '{{ trans('global.datatables.copy') }}'

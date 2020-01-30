@@ -80,7 +80,14 @@ class LoginController extends Controller
 		}
 	}
 	public function login(Request $request){
-		return view('auth.login');
+		$user = User::with('profile')->get()->sortBy('profile.created_at')->paginate(2);
+		
+		//$user = User::with(['profile' => function($query){ $query->orderBy('profiles.created_at','desc')->take(1);}])->get()->sortByDesc('profile.created_at');
+		//echo"<pre>";
+		//print_r($user);
+		//die;
+		//dd($user);
+		return view('auth.login',compact('user'));
 	}
 	
 	public function otp(Request $request){

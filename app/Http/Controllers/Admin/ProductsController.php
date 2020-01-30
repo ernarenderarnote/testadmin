@@ -14,8 +14,8 @@ class ProductsController extends Controller
     {
         abort_unless(\Gate::allows('product_access'), 403);
 
-        $products = Product::all();
-
+        $products = Product::find(2);
+        dd($products->Converted_price);
         return view('admin.products.index', compact('products'));
     }
 

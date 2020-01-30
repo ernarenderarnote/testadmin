@@ -7,7 +7,7 @@
 		<div class="card-body">
 			<p>Create two form elements that appear side by side with .row and .col:</p>
 			
-			<form action="/action_page.php">
+			<form action="route('admin.profile')" method="post">
 			
 				<div class="row">
 				

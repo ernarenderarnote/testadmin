@@ -3,9 +3,7 @@
 //Route::redirect('/', '/login');
 
 //Route::redirect('/home', '/admin');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/','HomeController@frontPage');
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 
 Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
@@ -56,5 +54,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('activities/destroy', 'ActivitiesController@massDestroy')->name('activities.massDestroy');
 
     Route::resource('activities', 'ActivitiesController');
+
+    Route::delete('currencies/destroy', 'CurrenciesController@massDestroy')->name('currencies.massDestroy');
+
+    Route::resource('currencies', 'CurrenciesController');
+	
+	 Route::post('/profile/*', function(){
+		 dd('hello');
+	 })->name('profile');
     
 });
