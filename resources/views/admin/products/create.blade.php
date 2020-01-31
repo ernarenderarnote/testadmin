@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+@php echo"<pre>"; print_r($currency->symbol); die;@endphp
 <div class="row">
 	<div class="card col-md-9">
 		<div class="card-header">

@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyProductRequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Product;
+use App\Currency;
 
 class ProductsController extends Controller
 {
@@ -14,15 +15,14 @@ class ProductsController extends Controller
     {
         abort_unless(\Gate::allows('product_access'), 403);
 
-        $products = Product::find(2);
-        dd($products->Converted_price);
+        $products = Product::all();
+        
         return view('admin.products.index', compact('products'));
     }
 
     public function create()
     {
         abort_unless(\Gate::allows('product_create'), 403);
-
         return view('admin.products.create');
     }
 
