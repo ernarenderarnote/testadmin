@@ -55,10 +55,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('activities', 'ActivitiesController');
 
+    Route::delete('blogs/destroy', 'BlogsController@massDestroy')->name('blogs.massDestroy');
+
+    Route::resource('blogs', 'BlogsController');
+
     Route::delete('currencies/destroy', 'CurrenciesController@massDestroy')->name('currencies.massDestroy');
 
     Route::resource('currencies', 'CurrenciesController');
-	
+    
+    Route::match(['get','post'],'/inqueries', [ 'as' => 'inqueries', "uses" => "InqueriesController@index"] );
 	 Route::post('/profile/*', function(){
 		 dd('hello');
 	 })->name('profile');
