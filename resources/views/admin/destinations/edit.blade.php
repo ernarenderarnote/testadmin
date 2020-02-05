@@ -24,7 +24,11 @@
             </div>
             <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
                 <label for="description">{{ trans('global.destination.fields.description') }}</label>
+<<<<<<< HEAD
                 <textarea id="description" name="description" class="form-control ">{{ old('description', isset($destination) ? $destination->description : '') }}</textarea>
+=======
+                <textarea id="description" name="description" class="form-control summernote">{{ old('description', isset($destination) ? $destination->description : '') }}</textarea>
+>>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
                 @if($errors->has('description'))
                     <em class="invalid-feedback">
                         {{ $errors->first('description') }}
@@ -36,7 +40,13 @@
             </div>
             <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
                 <label for="image">{{ trans('global.destination.fields.image') }}</label>
+<<<<<<< HEAD
                 <img id="ImdID" src="" alt="Image" />
+=======
+                <div class="img-preview" style="width:300px; height:300px;">
+                    <img id="ImdID" class="img-thumbnail" src="{{ url('/storage/images/'.$destination->thumbnails) }}" alt="Image" />
+                </div>
+>>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
                 <input type="file" id="image" name="image" class="form-control" onchange="readURL(this);">
                 @if($errors->has('price'))
                     <em class="invalid-feedback">
@@ -57,5 +67,22 @@
         </form>
     </div>
 </div>
+<<<<<<< HEAD
 
+=======
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#ImdID').attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+</script>
+>>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
 @endsection

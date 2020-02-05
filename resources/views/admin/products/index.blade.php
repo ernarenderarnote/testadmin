@@ -49,7 +49,7 @@
                                 {{ $product->description ?? '' }}
                             </td>
                             <td>
-                                {{ $product->price ?? '' }}
+                                {{$product->Currency_symbol}} {{ $product->converted_price ?? '' }}
                             </td>
                             <td>
                                 @can('product_show')

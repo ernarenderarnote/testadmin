@@ -371,6 +371,12 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
+<<<<<<< HEAD
+=======
+            'image'              => 'Featured Image',
+            'active'             => 'Active',
+            'title'              => 'Title',
+>>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
         ],
     ],
     'activity'                              => [
@@ -391,6 +397,67 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
+<<<<<<< HEAD
+=======
+            'image'              => 'Featured Image',
+            'active'             => 'Active',
+            'title'              => 'Title',
+        ],
+    ],
+    'currency'                              => [
+        'title'          => 'Currency',
+        'title_singular' => 'Currency',
+        'fields'         => [
+            'id'                 => 'ID',
+            'id_helper'          => '',
+            'name'               => 'Name',
+            'name_helper'        => '',
+            'currency_code'      => 'Currency Code',
+            'currency_code_helper' => '',
+            'currency_symbol'      => 'Currency Synbol',
+            'currency_symbol_helper' => '',
+            'created_at'         => 'Created At',
+            'created_at_helper'  => '',
+            'updated_at'         => 'Updated At',
+            'updated_at_helper'  => '',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => '',
+            'title'              => 'Title',
+        ],
+    ],
+    'blog'                              => [
+        'title'          => 'Blog',
+        'title_singular' => 'Blog',
+        'fields'         => [
+            'id'                 => 'ID',
+            'id_helper'          => '',
+            'name'               => 'Name',
+            'name_helper'        => '',
+            'created_at'         => 'Created At',
+            'created_at_helper'  => '',
+            'updated_at'         => 'Updated At',
+            'updated_at_helper'  => '',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => '',
+            'title'              => 'Title',
+        ],
+    ],
+    'inquery'                              => [
+        'title'          => 'Inquery',
+        'title_singular' => 'Inquery',
+        'fields'         => [
+            'id'                 => 'ID',
+            'id_helper'          => '',
+            'name'               => 'Name',
+            'name_helper'        => '',
+            'created_at'         => 'Created At',
+            'created_at_helper'  => '',
+            'updated_at'         => 'Updated At',
+            'updated_at_helper'  => '',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => '',
+            'title'              => 'Title',
+>>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
         ],
     ],
 ];

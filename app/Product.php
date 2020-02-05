@@ -23,4 +23,36 @@ class Product extends Model
         'deleted_at',
         'description',
     ];
+
+    public function getConvertedPriceAttribute() {
+        $price = $this->price;
+        session(['selected_currency' => 'EUR']);
+        $selected_currency = session()->get('selected_currency');
+        if( $selected_currency ){
+            $price = $this->getExchangeRate($selected_currency);
+        }
+        return $price;
+
+    }
+
+    public function getExchangeRate($currency_code){
+        $currency = Currency::where('code',$currency_code)->first();
+        return $this->price * $currency->exchange_rate; 
+    }
+    
+    public function getCurrencySymbolAttribute()
+    {
+        $symbol = '€';
+        session(['selected_currency' => 'EUR']);
+        $selected_currency = session()->get('selected_currency');
+        if( $selected_currency ){
+            $currency = Currency::where('code',$selected_currency)->first();
+            $symbol   = $currency->symbol;
+           
+        }
+        return $symbol;
+    }
+
+    
+   
 }
