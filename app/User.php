@@ -35,6 +35,9 @@ class User extends Authenticatable
         'deleted_at',
         'remember_token',
         'email_verified_at',
+		'image', 
+		'provider', 
+		'provider_id', 
     ];
 
     public function getEmailVerifiedAtAttribute($value)
@@ -63,4 +66,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+	 public function hasRole($role)
+	{
+	  return null !== $this->roles()->where('title', $role)->first();
+	}
+	/*
+	public function getFullNameAttribute()
+	{
+		return "{$this->name} {$this->email}";
+	 }*/
 }

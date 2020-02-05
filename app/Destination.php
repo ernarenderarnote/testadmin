@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Role extends Model
+class Destination extends Model
 {
     use SoftDeletes;
 
@@ -17,18 +17,12 @@ class Role extends Model
 
     protected $fillable = [
         'title',
-        'created_at',
+        'slug',
+        'description',
+		'thumbnails',
+		'is_active',
+		'created_at',
         'updated_at',
         'deleted_at',
     ];
-
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class);
-    }
-	
-	public function users()
-	{
-	  return $this->belongsToMany(User::class);
-	}
 }
