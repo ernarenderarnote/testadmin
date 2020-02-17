@@ -38,9 +38,13 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+</div>
+=======
 		
 	
 </div> <!-- firstname lastname email mobile age gender height weight address -->
+>>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 <link rel="stylesheet" href="build/css/intlTelInput.css">

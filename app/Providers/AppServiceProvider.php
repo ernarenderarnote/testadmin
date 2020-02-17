@@ -4,11 +4,14 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+<<<<<<< HEAD
+=======
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Currency;
 use View;
+>>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
 
 class AppServiceProvider extends ServiceProvider
 {
