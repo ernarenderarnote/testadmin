@@ -17,8 +17,8 @@
 						@csrf
                       <div class="form-group">
                         <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                          <input id="" name="phone" placeholder="Enter Mobile Number" class="form-control" type="text">
+                          <span class="input-group-addon"><i class="fa fa-phone color-blue"></i></span>
+                          <input id="mobile-number" name="phone" placeholder="Enter Mobile Number" class="form-control" type="tel">
 						   @if($errors->has('phone'))
 								<div id="error-box">
 								{{ $errors->first('phone') }}
@@ -43,7 +43,7 @@
 </div> <!-- firstname lastname email mobile age gender height weight address -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-
+<link rel="stylesheet" href="build/css/intlTelInput.css">
 <script>
 $(document).ready(function(){
 	//form Submit
@@ -135,6 +135,33 @@ $(document).ready(function(){
         } 
           
 	});	
-});
+}); 
 </script>
+<script src="build/js/intlTelInput.js"></script>
+<script>
+    var input = document.querySelector("#mobile-number");
+    window.intlTelInput(input, {
+      // allowDropdown: false,
+      // autoHideDialCode: false,
+      // autoPlaceholder: "off",
+      // dropdownContainer: document.body,
+      //excludeCountries: ["cn"],
+      formatOnDisplay: false,
+      // geoIpLookup: function(callback) {
+      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      //     var countryCode = (resp && resp.country) ? resp.country : "";
+      //     callback(countryCode);
+      //   });
+      // },
+      hiddenInput: "full_number",
+      // initialCountry: "auto",
+      // localizedCountries: { 'de': 'Deutschland' },
+      // nationalMode: false,
+      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+      // placeholderNumberType: "MOBILE",
+    preferredCountries: ['in', 'us'],
+    separateDialCode: true,
+    utilsScript: "build/js/utils.js",
+});
+</script> 
 @endsection

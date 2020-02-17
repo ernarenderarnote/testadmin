@@ -62,6 +62,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('currencies/destroy', 'CurrenciesController@massDestroy')->name('currencies.massDestroy');
 
     Route::resource('currencies', 'CurrenciesController');
+
+    Route::match(['get','post'],'/partial_payment', [ 'as' => 'makePayment', "uses" => "InqueriesController@makePayment"] );
     
     Route::match(['get','post'],'/inqueries', [ 'as' => 'inqueries', "uses" => "InqueriesController@index"] );
 	 Route::post('/profile/*', function(){

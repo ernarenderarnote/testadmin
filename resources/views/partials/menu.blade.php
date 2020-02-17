@@ -10,6 +10,14 @@
                     {{ trans('global.dashboard') }}
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route("admin.destinations.index") }}" class="nav-link {{ request()->is('admin/destinations') || request()->is('admin/destinations/*') ? 'active' : '' }}">
+                    <i class="fa fa-ticket nav-icon">
+
+                    </i>
+                    {{ trans('global.bookings.title') }}
+                </a>
+            </li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link  nav-dropdown-toggle">
                     <i class="fas fa-users nav-icon">
@@ -54,7 +62,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route("admin.destinations.index") }}" class="nav-link {{ request()->is('admin/destinations') || request()->is('admin/destinations/*') ? 'active' : '' }}">
-                    <i class="fas fa-cogs nav-icon">
+                    <i class="fas fa-plane nav-icon">
 
                     </i>
                     {{ trans('global.destination.title') }}
@@ -76,7 +84,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route("admin.currencies.index") }}" class="nav-link {{ request()->is('admin/currencies') || request()->is('admin/currencies/*') ? 'active' : '' }}">
-                    <i class="fas fa-euro nav-icon">
+                    <i class="fas fa-money nav-icon">
 
                     </i>
                     {{ trans('global.currency.title') }}
@@ -86,6 +94,12 @@
                 <a href="{{ route("admin.inqueries") }}" class="nav-link {{ request()->is('admin/inqueries') || request()->is('admin/inqueries/*') ? 'active' : '' }}">
                     <i class="fa fa-envelope nav-icon"></i>
                     {{ trans('global.inquery.title') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route("admin.inqueries") }}" class="nav-link {{ request()->is('admin/inqueries') || request()->is('admin/inqueries/*') ? 'active' : '' }}">
+                    <i class="fa fa-wrench nav-icon"></i>
+                    {{ trans('global.general_settings.title') }}
                 </a>
             </li>
             <li class="nav-item">
