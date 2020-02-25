@@ -7,6 +7,7 @@ use App\User;
 
 class HomeController extends Controller
 {
+    private $data;
     /**
      * Create a new controller instance.
      *
@@ -14,6 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->data = [];
         //$this->middleware('auth');
     }
 
@@ -27,8 +29,9 @@ class HomeController extends Controller
         return view('home');
     }
 	
-	public function frontPage(){
-		$users = User::paginate(2);
-		return view('welcome',compact('users'));
-	}
+    public function frontPage()
+    {
+		$this->data['users'] = User::get();
+		return view('welcome', $this->data);
+    }
 }

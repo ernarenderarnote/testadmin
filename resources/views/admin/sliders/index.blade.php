@@ -1,17 +1,16 @@
 @extends('layouts.admin')
 @section('content')
-@can('destination_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.destinations.create") }}">
-                {{ trans('global.add') }} {{ trans('global.destination.title_singular') }}
+            <a class="btn btn-success" href="{{route('admin.slides.create')}}">
+                Add New Slider
             </a>
         </div>
     </div>
-@endcan
+
 <div class="card">
     <div class="card-header">
-        {{ trans('global.destination.title_singular') }} {{ trans('global.list') }}
+        All Sliders
     </div>
 
     <div class="card-body">
@@ -23,13 +22,13 @@
 
                         </th>
                         <th>
-                            {{ trans('global.destination.fields.name') }}
+                            Slider Name
                         </th>
                         <th>
-                            {{ trans('global.destination.fields.description') }}
+                            Slider Images
                         </th>
                         <th>
-                            {{ trans('global.destination.fields.image') }}
+                            Set Active
                         </th>
                         <th>
                             &nbsp;
@@ -37,33 +36,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($destinations as $key => $destination)
-                        <tr data-entry-id="{{ $destination->id }}">
+                    @foreach($sliders as $key => $slider)
+                        <tr data-entry-id="{{ $slider->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $destination->title ?? '' }}
+                                {{ $slider->title ?? '' }}
                             </td>
                             <td>
-                                {!! $destination->description !!}
+                                @if(isset($slider->photo) && !empty($slider->photo))
+                                    @forelse( json_decode($slider->photo) as $slides)
+                                        <img src="{{ url('/storage/images/sliders/'.$slides) }}" style="height:100px;width:100px;">
+                                    @empty
+                                    @endforelse
+                                @endif
                             </td>
                             <td>
-                                {{ $destination->thumbnails ?? '' }}
+                                
                             </td>
+                            
                             <td>
-                                @can('product_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.destinations.show', $destination->id) }}">
+                                @can('user_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.slides.show', $slider->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
-                                @can('product_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.destinations.edit', $destination->id) }}">
+                                @can('user_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.slides.edit', $slider->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
-                                @can('product_delete')
-                                    <form action="{{ route('admin.destinations.destroy', $destination->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('user_delete')
+                                    <form action="{{ route('admin.slides.destroy', $slider->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -81,11 +86,11 @@
 @section('scripts')
 @parent
 <script>
-$(function () {
+    $(function () {
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.destinations.massDestroy') }}",
+    url: "",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -109,7 +114,7 @@ $(function () {
     }
   }
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('destination_delete')
+@can('user_delete')
   dtButtons.push(deleteButton)
 @endcan
 

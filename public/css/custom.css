@@ -94,4 +94,8 @@ table.dataTable thead .sorting_desc {
 .invalid-feedback{
     display:block;
 }
-
+.preview-image img {
+    height: 300px;
+    width: 300px;
+    position: relative;
+}

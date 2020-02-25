@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 
-    protected function unauthenticated($request, AuthenticationException $exception)
+    /* protected function unauthenticated($request, AuthenticationException $exception)
     {   
         $redirectTo = 'login';
 
@@ -59,9 +59,10 @@ class Handler extends ExceptionHandler
             if($_COOKIE['user_type'] == 'Admin'){
                 $redirectTo = 'admin';
             } 
+            
         }
         return $request->expectsJson()
             ? response()->json(['message' => $exception->getMessage()], 401)
             : redirect()->guest(route($redirectTo, ['account' => $request->route('account')]));
-    }
+    } */
 }

@@ -371,12 +371,9 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
-<<<<<<< HEAD
-=======
             'image'              => 'Featured Image',
             'active'             => 'Active',
             'title'              => 'Title',
->>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
         ],
     ],
     'activity'                              => [
@@ -397,8 +394,6 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
-<<<<<<< HEAD
-=======
             'image'              => 'Featured Image',
             'active'             => 'Active',
             'title'              => 'Title',
@@ -457,7 +452,6 @@ return [
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
             'title'              => 'Title',
->>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
         ],
     ],
     'general_settings'                              => [

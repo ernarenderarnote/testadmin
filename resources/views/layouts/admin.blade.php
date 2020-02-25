@@ -368,8 +368,10 @@
         <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
         </form>
-    </div>
-    <script src="{{ asset('js/adminJs/jquery.min.js') }}"></script>
+	</div>
+	
+	<script src="{{ asset('js/adminJs/jquery.min.js') }}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="{{ asset('/js/adminJs/popper.min.js') }}"></script>
     <script src="{{ asset('/js/adminJs/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/js/adminJs/coreui.min.js') }}"></script>

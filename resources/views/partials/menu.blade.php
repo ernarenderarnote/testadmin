@@ -77,8 +77,6 @@
                 </a>
             </li>
             <li class="nav-item">
-<<<<<<< HEAD
-=======
                 <a href="{{ route("admin.blogs.index") }}" class="nav-link {{ request()->is('admin/blogs') || request()->is('admin/blogs/*') ? 'active' : '' }}">
                     <i class="fa fa-rss-square nav-icon"></i>
                     {{ trans('global.blog.title') }}
@@ -99,16 +97,6 @@
                 </a>
             </li>
             <li class="nav-item">
-<<<<<<< HEAD
-                <a href="{{ route("admin.inqueries") }}" class="nav-link {{ request()->is('admin/inqueries') || request()->is('admin/inqueries/*') ? 'active' : '' }}">
-                    <i class="fa fa-wrench nav-icon"></i>
-                    {{ trans('global.general_settings.title') }}
-                </a>
-            </li>
-            <li class="nav-item">
-=======
->>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
->>>>>>> c82468b8c37c1319d41c9f46332481d22384051c
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">
 

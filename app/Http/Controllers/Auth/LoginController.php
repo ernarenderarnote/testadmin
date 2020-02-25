@@ -58,12 +58,8 @@ class LoginController extends Controller
 	*/
 	public function handleProviderCallback($social)
 	{
-<<<<<<< HEAD
-		$userSocial = Socialite::driver($social)->stateless()->user();
-=======
         $userSocial = Socialite::driver($social)->stateless()->user();
-        dd($userSocial);
->>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
+        
 		$user = User::where(['email' => $userSocial->getEmail()])->first();
 	    if($user){
 		   Auth::login($user);
@@ -84,9 +80,6 @@ class LoginController extends Controller
 		}
 	}
 	public function login(Request $request){
-<<<<<<< HEAD
-		return view('auth.login');
-=======
 		$user = User::with('profile')->get()->sortBy('profile.created_at')->paginate(2);
 		
 		//$user = User::with(['profile' => function($query){ $query->orderBy('profiles.created_at','desc')->take(1);}])->get()->sortByDesc('profile.created_at');
@@ -95,7 +88,6 @@ class LoginController extends Controller
 		//die;
 		//dd($user);
 		return view('auth.login',compact('user'));
->>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
 	}
 	
 	public function otp(Request $request){

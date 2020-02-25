@@ -1,13 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<<<<<<< HEAD
-<div class="content">
-    <div class="row">
-        <div class="col-lg-12">
-            Admin Dashboard
-        </div>
-    </div>
-=======
 <div class="container-fluid">
    <div id="ui-view">
       <div>
@@ -791,7 +783,6 @@
          </div>
       </div>
    </div>
->>>>>>> 5f08b3aab9e796c5ee77ecb117d4df9aaf63449d
 </div>
 @endsection
 @section('scripts')
