@@ -11,16 +11,16 @@ class UpdateSliderRequest extends FormRequest
 
     public function rules()
     {
+       
         return [
             'title' => [
                 'required',
-                Rule::unique('sliders')->ignore($this->slider->title)->whereNull('deleted_at'),
+                Rule::unique('sliders')->ignore($this->slide)->whereNull('deleted_at'),
             ],
             'photo' => [
-                'required'
+                'image'
             ],
             'photo.*' => [
-                'required',
                 'image'
             ]
         ];
@@ -32,8 +32,8 @@ class UpdateSliderRequest extends FormRequest
             'title.unique'          => 'Title has already been taken.',
             'photo.required'        => 'Slider Images are required.',
             'photo.image'           => 'Slider Images must be an Image.',
-            'photo.*required'        => 'Slider Images are required.',
-            'photo.*image'           => 'Slider Images must be an Image.',
+            'photo.*required'       => 'Slider Images are required.',
+            'photo.*image'          => 'Slider Images must be an Image.',
         ];
     }
 }

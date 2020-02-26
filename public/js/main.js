@@ -60,6 +60,7 @@ $(document).ready(function () {
       let no = $(this).data('no');
       $(".preview-image.preview-show-"+no).remove();
   });
+  
 });
 
 var num = 4;
@@ -91,4 +92,31 @@ function readImage() {
   } else {
       console.log('Browser not support');
   }
+
+  
+
 }
+
+//set default currency
+$('input[name="default_slider"]').on('change',function(e){
+  alert('hello');
+  var $button = $(this);
+  var $form   = $(this).closest('form');  
+  var $slider = $(this).attr('slider-name');
+  swal({
+    title: 'Do you want to set '+$slider+' as default slider?',
+    text: "This will change the home slider.",
+    icon: 'warning',
+    buttons: [true, "Do it!"],
+    dangerMode: true,
+    })
+    .then((willSetDefault) => {
+        if (willSetDefault) {
+          $form.submit();
+        }else{
+          $($button).prop('checked',false);
+        }
+        
+    });
+  e.preventDefault();
+});

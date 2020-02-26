@@ -83,7 +83,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('currencies', 'CurrenciesController');
 
     Route::match(['get','post'],'/partial_payment', [ 'as' => 'makePayment', "uses" => "InqueriesController@makePayment"] );
+    
     Route::resource('slides', 'SliderController');
+    
+    Route::match(['post'],'/slides/default/{id}', [ 'as' => 'slides.default', "uses" => "SliderController@setDefault"] );
+    
     Route::match(['get','post'],'/inqueries', [ 'as' => 'inqueries', "uses" => "InqueriesController@index"] );
 	 Route::post('/profile/*', function(){
 		 dd('hello');

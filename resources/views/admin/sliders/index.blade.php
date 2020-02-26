@@ -28,7 +28,7 @@
                             Slider Images
                         </th>
                         <th>
-                            Set Active
+                            Active
                         </th>
                         <th>
                             &nbsp;
@@ -53,27 +53,31 @@
                                 @endif
                             </td>
                             <td>
-                                
+                                <div class="custom-control custom-radio">
+                                    <form action="{{ route('admin.slides.default', $slider->id) }}" method="POST" style="display: inline-block;">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="radio" slider-name="{{$slider->title}}" value="{{$slider->title}}" class="custom-control-input" id="customRadio{{$slider->id}}" name="default_slider" {{$slider->is_default == '1'  ? 'checked' : ''}}>
+                                        <label class="custom-control-label" for="customRadio{{$slider->id}}"></label>
+                                    </form>
+                                </div>
                             </td>
                             
                             <td>
-                                @can('user_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.slides.show', $slider->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
-                                @can('user_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.slides.edit', $slider->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
-                                @can('user_delete')
-                                    <form action="{{ route('admin.slides.destroy', $slider->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
+                               
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.slides.show', $slider->id) }}">
+                                    {{ trans('global.view') }}
+                                </a>
+                            
+                                <a class="btn btn-xs btn-info" href="{{ route('admin.slides.edit', $slider->id) }}">
+                                    {{ trans('global.edit') }}
+                                </a>
+                            
+                                <form action="{{ route('admin.slides.destroy', $slider->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                </form>
+                               
                             </td>
 
                         </tr>

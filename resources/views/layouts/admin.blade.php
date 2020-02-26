@@ -391,7 +391,8 @@
     <script src="{{ asset('/js/adminJs/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('/js/adminJs/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/adminJs/dropzone.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
+	<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
     
 
     <script src="{{ asset('js/main.js') }}"></script>

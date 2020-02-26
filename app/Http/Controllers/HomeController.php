@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Slider;
 
 class HomeController extends Controller
 {
@@ -31,7 +32,8 @@ class HomeController extends Controller
 	
     public function frontPage()
     {
-		$this->data['users'] = User::get();
+        $this->data['users']   = User::get();
+        $this->data['slide'] = Slider::where('is_default','1')->first();
 		return view('welcome', $this->data);
     }
 }

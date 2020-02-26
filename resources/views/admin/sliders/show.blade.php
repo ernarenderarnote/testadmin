@@ -1,15 +1,6 @@
-@extends('layouts.app')
-@section('content')   
-	<!--div class="container">
-		<header-component></header-component>
-		<!--users-component :users-data="{{$users}}"></users-component-->
-		<!--router-view></router-view-->
-
-	<!--/div-->
-	<!-- Full Page Image Background Carousel Header -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <div id="demo" class="carousel slide" data-ride="carousel">
+@extends('layouts.admin')
+@section('content')
+<div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
   <ul class="carousel-indicators">
@@ -40,4 +31,4 @@
   </a>
 
 </div>
-@endsection           
+@endsection
